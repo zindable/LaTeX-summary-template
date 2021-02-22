@@ -1,0 +1,72 @@
+%! Licence = CC BY-NC-SA 4.0
+
+%! Author = mariuszindel
+%! Date = 22. Feb 2021
+%! Project = latex-test-template
+
+\section{Section}
+
+
+
+\subsection{Subsection}
+
+
+\subsubsection{Subsubsection}
+\lipsum
+
+\subsubsection{graphic}
+\begin{center}
+    \includegraphics[width=\linewidth]{./img/OST_Logo.png}
+\end{center}
+\vspace{-8pt}
+
+\subsubsection{table}
+    \begin{center}
+    \begin{tabular}{l | c | r}
+        \hline
+        left align & center align & right align\\ \hline
+        \hline
+        hello & world & !\\ \hline
+        hello & world & !\\ \hline
+    \end{tabular}
+    \end{center}
+
+\subsubsection{items}
+\begin{itemize}
+    \item hello
+    \item world
+    \item !
+\end{itemize}
+
+\subsubsection{enumaeration}
+\begin{enumerate}
+    \item hello
+    \item world
+    \item !
+\end{enumerate}
+
+\subsubsection{listings}
+\begin{lstlisting}
+//simple listing in default language
+    for (int i = 0; i < 10; i++) {
+    System.out.printline(i + "hello world!");
+    }
+\end{lstlisting}
+
+\begin{lstlisting}[style=JavaScript]
+// example listing in JS
+    var = hello world
+\end{lstlisting}
+
+
+\subsubsection{minipage}
+\begin{minipage}{0.5\linewidth}
+    \begin{center}
+        \includegraphics[width=\linewidth]{example-image}
+        \vspace{-8pt}
+    \end{center}
+\end{minipage}
+\begin{minipage}{0.45\linewidth}
+    This is a little example text on the right side.\\
+    \texttt{Could also be written} \textit{with different} \textbf{font styles}
+\end{minipage}

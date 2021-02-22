@@ -1,0 +1,120 @@
+%! Licence = CC BY-NC-SA 4.0
+
+%! Author = mariuszindel
+%! Date = 24. Jan 2021
+%! Project = latex-test-template
+
+
+\documentclass[a4paper, landscape, 8pt]{scrartcl}
+
+% charset
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% use language german
+\usepackage[ngerman]{babel}
+
+% format page size
+\usepackage{geometry}
+\geometry{top=1.2cm,left=0.4cm,right=0.4cm}
+\textheight = 558pt
+
+% tabular
+\usepackage{tabularx}
+
+% math
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{enumitem}
+
+% graphic
+\usepackage{graphicx}
+\graphicspath{{img/}}
+
+% colors
+\usepackage[dvipsnames]{xcolor}
+
+% multi columns
+\usepackage{multicol}
+
+% make items compact
+\setlist{topsep=0pt, leftmargin=3mm, nolistsep}
+\setlength{\parindent}{0cm}
+
+% author and institute
+\newcommand{\AUTHOR}{Marius Zindel }
+\newcommand{\INSTITUTE}{Hochschule für Technik Rapperswil}
+
+% define header and footer
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\fancyhead[RO]{\AUTHOR| \INSTITUTE}
+\fancyhead[LO]{\TITLE}
+\fancyfoot[RO]{\DELIVERYDATE}
+\fancyfoot[LO]{Created with \LaTeX}
+\renewcommand\headrulewidth{0pt}
+\renewcommand\footrulewidth{0pt}
+\headsep = -2pt
+\footskip = 0pt
+
+% define color
+\definecolor{sectionColor}{HTML}{052639}
+\definecolor{subSectionColor}{HTML}{468189}
+\definecolor{subSubSectionColor}{HTML}{8DB9B1}
+\definecolor{codeBackground}{RGB}{245,245,245}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{darkGreen}{RGB}{0,150,0}
+\definecolor{DarkPurple}{rgb}{0.4, 0.1, 0.4}
+
+% define section format
+\usepackage{sectsty}
+\usepackage{titlesec}
+
+\titleformat{name=\section}[block]{\sffamily\small}{}{0pt}{\colorsection}
+\titlespacing*{\section}{0pt}{0pt}{0pt}
+\newcommand{\colorsection}[1]{%
+    \colorbox{sectionColor!80}{\parbox{0.98\linewidth}{\vspace{-1pt}\color{white}\ #1 \vspace{-2pt}}}}
+
+% define subsection format
+\titleformat{name=\subsection}[block]{\sffamily\small}{}{0pt}{\colorsubsection}
+\titlespacing*{\subsection}{0pt}{0pt}{0pt}
+\newcommand{\colorsubsection}[1]{%
+    \colorbox{subSectionColor!80}{\parbox{0.98\linewidth}{\vspace{-1pt}\color{black}\ #1 \vspace{-2pt}}}}
+
+% define subsubsection format
+\titleformat{name=\subsubsection}[block]{\sffamily\small}{}{0pt}{\colorsubsubsection}
+\titlespacing*{\subsubsection}{0pt}{0pt}{0pt}
+\newcommand{\colorsubsubsection}[1]{%
+    \colorbox{subSubSectionColor!60}{\parbox{0.98\linewidth}{\vspace{-1pt}\color{black}\ #1 \vspace{-2pt}}}}
+
+% import code listings
+\usepackage{listings}
+\usepackage{beramono}
+\input{./style/listings.tex}
+\lstset{style=java}
+\lstset{
+ literate=  % Allow for German characters in lstlistings.
+ {Ö}{{\"O}}1
+ {Ä}{{\"A}}1
+ {Ü}{{\"U}}1
+ {ü}{{\"u}}1
+ {ä}{{\"a}}1
+ {ö}{{\"o}}1
+}
+
+% dotted rule
+\usepackage{dashrule}
+\usepackage{tikz}
+\usetikzlibrary{decorations.markings}
+\newcommand{\drule}[3][0]{
+    \tikz[baseline]{\path[decoration={markings,
+    mark=between positions 0 and 1 step 2*#3
+    with {\node[fill, circle, minimum width=#3, inner sep=0pt, anchor=south west] {};}},postaction={decorate}]  (0,#1) -- ++(#2,0);}}
+
+% no indentation
+\setlength{\parindent}{0cm}
+
+% include lorem ipsum
+\usepackage{lipsum}
